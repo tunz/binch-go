@@ -8,6 +8,7 @@ case "$arch" in
     Darwin\ *64) wget -O ~/.local/bin/binch https://github.com/tunz/binch-go/releases/download/${version}/binch-macos  ;;
     *) echo "This OS is not supported yet. Please report us in https://github.com/tunz/binch-go"; exit 1;;
 esac
+chmod +x ~/.local/bin/binch
 
 if [[ "$SHELL" =~ "bash" ]]; then
     echo "" >> ~/.bashrc

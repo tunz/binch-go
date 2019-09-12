@@ -8,7 +8,7 @@ A lightweight ELF binary path tool.
 
 Using Install script
 ```
-$ curl https://raw.githubusercontent.com/tunz/binch-go/master/install.sh | sh
+$ curl https://raw.githubusercontent.com/tunz/binch-go/master/install.sh | bash
 ```
 
 or, you can download a binary in [releases](https://github.com/tunz/binch-go/releases) page.
