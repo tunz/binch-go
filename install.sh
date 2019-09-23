@@ -10,17 +10,19 @@ case "$arch" in
 esac
 chmod +x ~/.local/bin/binch
 
-if [[ "$SHELL" =~ "bash" ]]; then
-    echo "" >> ~/.bashrc
-    echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc
-elif [[ "$SHELL" =~ "zsh"  ]]; then
-    echo "" >> ~/.zsrrc
-    echo 'export PATH=~/.local/bin:$PATH' >> ~/.zshrc
-else
-    echo "Please add ~/.local/bin to your PATH"
-    echo ""
-    echo '    export PATH=~/.local/bin:$PATH'
-    echo ""
+if [[ "$PATH" != *"$HOME/.local/bin:"* && "$PATH" != *":$HOME/.local/bin" ]]; then
+    if [[ "$SHELL" =~ "bash" ]]; then
+            echo "" >> ~/.bashrc
+            echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc
+    elif [[ "$SHELL" =~ "zsh"  ]]; then
+        echo "" >> ~/.zsrrc
+        echo 'export PATH=~/.local/bin:$PATH' >> ~/.zshrc
+    else
+        echo "Please add ~/.local/bin to your PATH"
+        echo ""
+        echo '    export PATH=~/.local/bin:$PATH'
+        echo ""
+    fi
 fi
 
 echo "Installation Completed!"
