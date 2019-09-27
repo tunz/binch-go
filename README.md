@@ -1,6 +1,6 @@
 # binch
 
-A lightweight ELF binary path tool.
+A lightweight ELF binary patch tool.
 
 ![render1567170049118](https://user-images.githubusercontent.com/7830853/64022926-2e990000-cb72-11e9-9736-5c349cc0618f.gif)
 
