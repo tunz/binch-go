@@ -6,6 +6,7 @@ import (
 	"github.com/tunz/binch-go/pkg/io"
 	"log"
 	"sort"
+	"strings"
 )
 
 const maxInstrBytes = 15 // Maximum bytes of x86 instructions.
@@ -212,6 +213,11 @@ func (p *Project) Entry() uint64 {
 
 // Assemble returns byte codes of a given instruction.
 func (p *Project) Assemble(instr string, addr uint64) []byte {
+	// LLVM has some weird syntax check. It does not catch syntax errors for
+	// mismatched brackets. So, we catch them here.
+	if strings.Count(instr, "[") != strings.Count(instr, "]") {
+		return nil
+	}
 	encoding, _, ok := p.assembler.Assemble(instr, addr)
 	if !ok {
 		return nil
